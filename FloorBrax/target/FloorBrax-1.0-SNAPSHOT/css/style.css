@@ -1,0 +1,153 @@
+body {
+    font-family: source-sans-pro;
+    background-color: white;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-style: normal;
+    font-weight: 200;
+}
+
+.containerTwo{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 820px;
+}
+
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: blue;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.loginbox input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+
+.appButton input {
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 180px;
+	background: #fb2525;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 20px;
+        float: right;
+        margin-right: 20px;
+}
+
+.editTable {
+    padding-left: 50px;
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.editTable td {
+    width: 250px;
+    padding: 5px;
+}
+
+.editTable input {
+    width: 100%;
+}
+
+.editTable input[type="submit"] {
+        border: none;
+	outline: none;
+	height: 30px;
+	width: 150px;
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+        float: right;
+        margin-top: 20px;
+}
+
+.appTable {
+    padding-top: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.appTable table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.appTable th {
+    border: 1px solid black;
+    background-color: #d69848;
+    text-align: center;
+}
+
+.appTable td {
+    text-align: center;
+}
