@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Business.*;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
@@ -36,6 +37,7 @@ public class goToOrderSelectedServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             Order order = new Order();
+            Service service = new Service();
             String num = request.getParameter("num");
             order.selectOrder("order_num", num);
             Subdivision subdivision = new Subdivision();
@@ -45,9 +47,21 @@ public class goToOrderSelectedServlet extends HttpServlet {
             User user = new User();
             user.selectUser("id", String.valueOf(order.getUser()));
             
+            ArrayList<Subdivision> listOfSubdivisions = new ArrayList();
+            listOfSubdivisions = subdivision.selectAllSubdivisions();
+            
+            ArrayList<Installer> listOfInstallers = new ArrayList();
+            listOfInstallers = installer.selectAllInstallers();
+            
+            ArrayList<Service> listOfService = new ArrayList();
+            listOfService = service.selectAllServices();
+            
             HttpSession session = request.getSession();
             session.setAttribute("order", order);
             session.setAttribute("subSelected", subdivision.getName());
+            session.setAttribute("listOfSubdivisions", listOfSubdivisions);
+            session.setAttribute("listOfInstallers", listOfInstallers);
+            session.setAttribute("listOfService", listOfService);
             session.setAttribute("installerSelected", installer.getName());
             session.setAttribute("userSelected", user.getName());
             

@@ -99,7 +99,8 @@ public class editOrderServlet extends HttpServlet {
             order.selectOrder("order_num", orderNum);
             
             session.setAttribute("order", order);
-            
+            session.setAttribute("subEdited", subdivision.getName());
+            session.setAttribute("installerEdited", installer.getName());
             
             RequestDispatcher rd = request.getRequestDispatcher("orderAdded.jsp");
             rd.forward(request, response);

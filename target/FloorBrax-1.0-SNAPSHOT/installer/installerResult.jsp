@@ -19,7 +19,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="home.jsp">FloorBrax</a></h1>
+    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
   </div>
   <div class="container">
     <div class="row">
@@ -29,7 +29,7 @@
             Orders
           </button>
           <div class="dropdown-menu">
-            <a href="addOrder.jsp" class="dropdown-item">Add Order</a>
+            <a href="uploadPicture.jsp" class="dropdown-item">Add Order</a>
             <a href="searchByNum.jsp" class="dropdown-item">Search by Number</a>
             <a href="searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
             <a href="searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -79,7 +79,7 @@
         </div>
     </div>  
     <div class="container">
-        <form action="http://localhost:8080/FloorBrax/searchInstallerServlet" method="post"
+        <form action="http://floor.us-east-1.elasticbeanstalk.com/searchInstallerServlet" method="post"
             <div class="input-group mt-4">
                 <input class="form-control" type="text" name="name" placeholder="Enter Name of Installer" required>
                 <span class="input-group-btn">
@@ -91,26 +91,28 @@
     </div>
     
     <div class="container mt-4">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="text-center">#</th>
-          <th class="text-center">Id</th>
-          <th class="text-center">Name</th>
-          <th class="text-center">Phone</th>
-          <th class="text-center">View Installer</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th class="text-center" scope="row">1</th>
-          <td class="text-center"><c:out value="${sessionScope.installer.id}"/></td>
-          <td class="text-center"><c:out value="${sessionScope.installer.name}"/></td>
-          <td class="text-center"><c:out value="${sessionScope.installer.phone}"/></td>
-          <td class="text-center"><a class="btn btn-primary" href="installer/editInstaller.jsp">View</a></td>
-        </tr>
-      </tbody>
-    </table>
+        <div style="overflow-x:auto;">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th class="text-center">Id</th>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Phone</th>
+                  <th class="text-center">View Installer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="text-center" scope="row">1</th>
+                  <td class="text-center"><c:out value="${sessionScope.installer.id}"/></td>
+                  <td class="text-center"><c:out value="${sessionScope.installer.name}"/></td>
+                  <td class="text-center"><c:out value="${sessionScope.installer.phone}"/></td>
+                  <td class="text-center"><a class="btn btn-primary" href="installer/editInstaller.jsp">View</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
   </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

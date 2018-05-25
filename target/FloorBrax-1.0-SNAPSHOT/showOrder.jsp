@@ -16,7 +16,7 @@
     <title>FloorBrax - System Management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/javascript.js"></script>
@@ -29,8 +29,16 @@
 </head>
 
 <body onload="setPending()">
-    <div class="container">
-        <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="">FloorBrax</a></h1>
+    <div class="container" id="zero">
+        <h1 class="display-3 text-center text-white mt-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
+    </div>
+    <div class="container mb-4" id="one" hidden="true">
+        <div class="text-center">
+            <h4>2924 Wilson dr NW</h4>
+            <h5>Huntsville, AL 35816</h5>
+            <h5>255-651-7493</h5>
+        </div>
+        <hr>
     </div>
     <div class="container">
         <div class="row">
@@ -40,7 +48,7 @@
                         Orders
                     </button>
                     <div class="dropdown-menu">
-                        <a href="addOrder.jsp" class="dropdown-item">Add Order</a>
+                        <a href="uploadPicture.jsp" class="dropdown-item">Add Order</a>
                         <a href="searchByNum.jsp" class="dropdown-item">Search by Number</a>
                         <a href="searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
                         <a href="searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -99,13 +107,13 @@
             </div>
         </div>
     </div> 
-    <div class="container mt-4">
+    <div class="container mt-4" id="two">
         <div class="alert alert-success text-center">
-            Add order
+            View Order
         </div>
     </div>
-<form action="http://localhost:8080/FloorBrax/editOrderServlet" method="post">
-    <div class="container mt-4">
+<form action="http://floor.us-east-1.elasticbeanstalk.com/editOrderServlet" method="post">
+    <div class="container mt-4" id="three">
         <div class="container border border-primary">
             <div class="row">
                 <div class="col-sm">
@@ -135,7 +143,7 @@
                     <select class="form-control ml-2" id="subdivision" name="subdivision" required hidden="true">
                         <option></option>
                         <c:forEach items="${sessionScope.listOfSubdivisions}" var="sub">
-                            <option><c:out value="${sub.name}"/></option>
+                            <option id="<c:out value="${sub.name}"/>"><c:out value="${sub.name}"/></option>
                         </c:forEach>
                     </select>
                     <label class="mt-2 text-dark">Installer:</label><br>
@@ -174,7 +182,7 @@
                         <label 
                             class="mt-2 ml-4 text-primary mr-2 font-weight-bold">
                             Tile - <c:out value="${sessionScope.order.squareFootage}"/>
-                        </label>/<label class="mt-2 ml-2 text-danger mr-2 font-weight-bold"> Ditra - <c:out value="${sessionScope.order.sqfDitra}"/></label>/<label class="mt-2 ml-2 text-success mr-2 font-weight-bold">Hardwood - <c:out value="${sessionScope.order.sqfHardwood}"/>.</label>
+                        </label>/<label class="mt-2 ml-2 text-danger mr-2 font-weight-bold"> Ditra - <c:out value="${sessionScope.order.sqfDitra}"/></label>/<label class="mt-2 ml-2 text-success mr-2 font-weight-bold">Hardwood - <c:out value="${sessionScope.order.sqfHardwood}"/></label>
                     </small>
                 </div>
                 <div class="col-sm">
@@ -321,13 +329,12 @@
             <div class="row">
                 <div class="col-sm">
                 </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm">
+                <div class="col-sm" id="buttons">
                     <button class="btn btn-danger float-right m-2" type="button" data-toggle="modal" data-target="#deleteModal">Delete Order</button>
                     <button class="btn btn-warning float-right m-2" type="button" id="edit" onclick="toEdit()">Edit Order</button>    
-                    <button class="btn btn-success float-right m-2" type="submit" id="save" hidden="true">Save</button>  
-                    <button class="btn btn-primary float-right m-2" onclick="printFunction()">Print</button> 
+                    <button class="btn btn-success float-right m-2" type="submit" id="save" hidden="true">Save</button>
+                    <button class="btn btn-dark float-right m-2" onclick="toEdit()" hidden="true" id="cancel">Cancel</button> 
+                    <button class="btn btn-primary float-right m-2" onclick="printFunction()" id="print">Print</button> 
                 </div>
             </div>
         </div>
@@ -344,21 +351,13 @@
                     Are you sure you want to delete this order?
                 </div>
                 <div class="modal-footer">
-                    <form action="http://localhost:8080/FloorBrax/deleteOrder" method="post">
-                        <input 
-                            class="form-control" 
-                            type="text" 
-                            id="pic" 
-                            name="pic" 
-                            value="<c:out value="${sessionScope.order.pic}"/>" 
-                            required 
-                            hidden="true">
+                    <form action="http://floor.us-east-1.elasticbeanstalk.com/deleteOrder" method="post">
+                        <input class="form-control" type="text" id="pic" name="pic" value="<c:out value="${sessionScope.order.pic}"/>" required hidden="true">
                         <button class="btn btn-primary" type="submit">Delete</button>
                     </form>
                     <button class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
-        </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>

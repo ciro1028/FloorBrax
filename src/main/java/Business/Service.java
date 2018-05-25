@@ -129,8 +129,8 @@ public class Service {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             
@@ -159,8 +159,8 @@ public class Service {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, title);
@@ -187,8 +187,8 @@ public class Service {
         
        try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             PreparedStatement ps = conn.prepareStatement(sql);
             
             ps.setInt(1, id);
@@ -216,8 +216,8 @@ public class Service {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
 
@@ -248,8 +248,8 @@ public class Service {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             
@@ -271,8 +271,8 @@ public class Service {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             
             PreparedStatement ps = conn.prepareStatement(sql);
             

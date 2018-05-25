@@ -215,8 +215,8 @@ public class Order {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             
@@ -267,8 +267,8 @@ public class Order {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             
@@ -318,8 +318,8 @@ public class Order {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             PreparedStatement ps = conn.prepareStatement(sql);
             
             ps.setString(1, orderNum);
@@ -359,8 +359,8 @@ public class Order {
         
             try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             PreparedStatement ps = conn.prepareStatement(sql);
             
             ps.setString(1, orderNum);
@@ -397,8 +397,8 @@ public class Order {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
 
@@ -424,8 +424,8 @@ public class Order {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             
             PreparedStatement ps = conn.prepareStatement(sql);
             
@@ -444,8 +444,8 @@ public class Order {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"
-                    + "localhost:3306/floorbrax", "root", "Cc102807");
+            Connection conn = DriverManager.getConnection(""
+                    + "jdbc:mysql://floorbraxdb.cafbpmnvc5qd.us-east-1.rds.amazonaws.com:3306/FloorBraxDB", "root", "Cc102807");
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sql);
 
@@ -465,18 +465,18 @@ public class Order {
         return ordersList;
     }
     
-    public static void main(String[] args) {
-        Order order = new Order();
-        
-        order.selectOrder("order_num", "H22725");
-        
-        for (String service : order.getServices()) {
-            System.out.println("Service: " + service);
-        }
-        
-        //order.updateOrder("r44", 1, "test order2", "05/14/2018", "extras test3", "pending", "Dairy", "000000", "fsdkjdflfds", 500, 350);
-        //order.insertOrder("H28097", 2, "Install Wood", "07/26/2018", "", "pending", "Dairy", "null", "sfsehtwj", 1150, 700, "");
-        
-    }
+//    public static void main(String[] args) {
+//        Order order = new Order();
+//        
+//        order.selectOrder("order_num", "H22725");
+//        
+//        for (String service : order.getServices()) {
+//            System.out.println("Service: " + service);
+//        }
+//        
+//        //order.updateOrder("r44", 1, "test order2", "05/14/2018", "extras test3", "pending", "Dairy", "000000", "fsdkjdflfds", 500, 350);
+//        //order.insertOrder("H28097", 2, "Install Wood", "07/26/2018", "", "pending", "Dairy", "null", "sfsehtwj", 1150, 700, "");
+//        
+//    }
 }
 

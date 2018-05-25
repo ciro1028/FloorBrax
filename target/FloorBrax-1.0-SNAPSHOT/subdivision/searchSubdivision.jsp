@@ -21,7 +21,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="../home.jsp">FloorBrax</a></h1>
+    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
   </div>
   <div class="container">
     <div class="row">
@@ -31,7 +31,7 @@
             Orders
           </button>
           <div class="dropdown-menu">
-            <a href="../addOrder.jsp" class="dropdown-item">Add Order</a>
+            <a href="../uploadPicture.jsp" class="dropdown-item">Add Order</a>
             <a href="../searchByNum.jsp" class="dropdown-item">Search by Number</a>
             <a href="../searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
             <a href="../searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -81,7 +81,7 @@
         </div>
     </div> 
     <div class="container">
-        <form action="http://localhost:8080/FloorBrax/searchSubdivisionServlet" method="post"
+        <form action="http://floor.us-east-1.elasticbeanstalk.com/searchSubdivisionServlet" method="post"
             <div class="input-group mt-4">
                 <input class="form-control" type="text" name="name" placeholder="Enter Name of Subdivision" required>
                 <span class="input-group-btn">
@@ -97,7 +97,8 @@
         </div>
     </div>
     <div class="container" id="allServices" hidden="true">
-        <table class="table table-striped">
+        <div style="overflow-x:auto;">
+            <table class="table table-striped">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -115,12 +116,13 @@
                         <td><c:out value="${sub.name}"/></td>
                         <td><c:out value="${sub.address}"/></td>
                       <td>
-                          <a class="btn btn-primary" href="<c:url value="http://localhost:8080/FloorBrax/goToSubdivisionServlet"><c:param name="id" value="${sub.id}"></c:param></c:url>">View</a>
+                          <a class="btn btn-primary" href="<c:url value="http://floor.us-east-1.elasticbeanstalk.com/goToSubdivisionServlet"><c:param name="id" value="${sub.id}"></c:param></c:url>">View</a>
                       </td>
                   </tr>
                   </c:forEach>
                 </tbody>
             </table>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

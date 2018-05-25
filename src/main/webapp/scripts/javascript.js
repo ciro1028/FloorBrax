@@ -5,35 +5,64 @@ $( function() {
 var date = "";
 
 function toEdit() {
-    document.getElementById("save").hidden = false;
-    document.getElementById("edit").hidden = true;
+    document.getElementById("save").hidden = (document.getElementById("save").hidden) ? false : true;
+    document.getElementById("edit").hidden = (document.getElementById("edit").hidden) ? false : true;
+    document.getElementById("cancel").hidden = (document.getElementById("cancel").hidden) ? false : true;
+    document.getElementById("print").hidden = (document.getElementById("print").hidden) ? false : true;
     document.getElementById("order_num").disabled = false;
     document.getElementById("datepicker").disabled = false;
     document.getElementById("details").disabled = false;
-    document.getElementById("status").hidden = false;
-    document.getElementById("statusDis").hidden = true;
+    document.getElementById("status").hidden = (document.getElementById("status").hidden) ? false : true;
+    document.getElementById("statusDis").hidden = (document.getElementById("statusDis").hidden) ? false : true;
     document.getElementById("status").value = document.getElementById("statusDis").value;
-    document.getElementById("installer").hidden = false;
-    document.getElementById("installerDis").hidden = true;
+    document.getElementById("installer").hidden = (document.getElementById("installer").hidden) ? false : true;
+    document.getElementById("installerDis").hidden = (document.getElementById("installerDis").hidden) ? false : true;
     document.getElementById("installer").value = document.getElementById("installerDis").value;
 
-    document.getElementById("upload").hidden = false;
-    document.getElementById("clickToSee").hidden = true;
-    document.getElementById("rowService").hidden = true;
-    document.getElementById("rowserviceEdit").hidden = false;
-    document.getElementById("subdivision").hidden = false;
-    document.getElementById("sub").hidden = true;
+    document.getElementById("upload").hidden = (document.getElementById("upload").hidden) ? false : true;
+    document.getElementById("clickToSee").hidden = (document.getElementById("clickToSee").hidden) ? false : true;
+    document.getElementById("rowService").hidden = (document.getElementById("rowService").hidden) ? false : true;
+    document.getElementById("rowserviceEdit").hidden = (document.getElementById("rowserviceEdit").hidden) ? false : true;
+    document.getElementById("subdivision").hidden = (document.getElementById("subdivision").hidden) ? false : true;
+    document.getElementById("sub").hidden = (document.getElementById("sub").hidden) ? false : true;
     document.getElementById("subdivision").value = document.getElementById("sub").value;
     setDate();
     document.getElementById("order_num").style.color = "black";
     document.getElementById("statusDis").style.color = '#ff0000';
-    document.getElementById("addedInfo").hidden = true;
-    document.getElementById("addedMessage").hidden = true;
+    document.getElementById("addedInfo").hidden = (document.getElementById("addedInfo").hidden) ? false : true;
+    document.getElementById("addedMessage").hidden = (document.getElementById("addedMessage").hidden) ? false : true;
 }
 
 function printFunction(){
+    var restorePage = document.body.innerHTML;
+    document.getElementById("buttons").hidden = true;
+    document.getElementById("one").hidden = false;
+    var printcontent = document.getElementById("zero").innerHTML + document.getElementById("one").innerHTML + document.getElementById("two").innerHTML + document.getElementById("three").innerHTML; 
+    
+    document.body.innerHTML = printcontent;
     window.print();
+    document.body.innerHTML = restorePage;
+    document.getElementById("one").hidden = true;
+    document.getElementById("buttons").hidden = false;
 }
+
+function printFunctionInstaller(){
+    var restorePage = document.body.innerHTML;
+    document.getElementById("buttons").hidden = true;
+    document.getElementById("one").hidden = false;
+    document.getElementById("printButton").hidden = true;
+    var printcontent = document.getElementById("zero").innerHTML + document.getElementById("one").innerHTML + 
+            document.getElementById("two").innerHTML + document.getElementById("three").innerHTML + 
+            document.getElementById("four").innerHTML + document.getElementById("five").innerHTML; 
+    
+    document.body.innerHTML = printcontent;
+    window.print();
+    document.body.innerHTML = restorePage;
+    document.getElementById("one").hidden = true;
+    document.getElementById("buttons").hidden = false;
+    document.getElementById("printButton").hidden = false;
+}
+
 $('.port-item').click(function(){
   $('.collapse').collapse('hide');
 });

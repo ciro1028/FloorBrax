@@ -25,7 +25,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://localhost:8080/FloorBrax/loginSvlt">FloorBrax</a></h1>
+        <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/loginSvlt">FloorBrax</a></h1>
     </div>
     <div class="container">
         <div class="row">
@@ -93,7 +93,7 @@
             Add new Order
         </div>
     </div>
-    <form action="http://localhost:8080/FloorBrax/addOrdersServlet" method="post">
+    <form action="http://floor.us-east-1.elasticbeanstalk.com/addOrdersServlet" method="post">
         <div class="container">
             <div class="container border border-primary">
                 <div class="row mt-2">

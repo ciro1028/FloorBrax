@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@
     <title>FloorBrax - System Management</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/javascript.js"></script>
@@ -30,7 +29,7 @@
 </head>
 <body onload="setPending()">
     <div class="container">
-        <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="">FloorBrax</a></h1>
+        <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
     </div>
     <div class="container">
         <div class="row">
@@ -40,7 +39,7 @@
                         Orders
                     </button>
                     <div class="dropdown-menu">
-                        <a href="addOrder.jsp" class="dropdown-item">Add Order</a>
+                        <a href="uploadPicture.jsp" class="dropdown-item">Add Order</a>
                         <a href="searchByNum.jsp" class="dropdown-item">Search by Number</a>
                         <a href="searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
                         <a href="searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -104,7 +103,7 @@
             Order added successfuly!
         </div>
     </div>
-    <form action="http://localhost:8080/FloorBrax/editOrderServlet" method="post">
+    <form action="http://floor.us-east-1.elasticbeanstalk.com/editOrderServlet" method="post">
         <div class="container mt-4">
             <div class="container border border-primary">
                 <div class="row">
@@ -156,6 +155,13 @@
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                         </select>
+                        <small><label class="mt-2 ml-2">Square Footage: </label></small></br>
+                        <small>
+                            <label 
+                                class="mt-2 ml-4 text-primary mr-2 font-weight-bold">
+                                Tile - <c:out value="${sessionScope.order.squareFootage}"/>
+                            </label>/<label class="mt-2 ml-2 text-danger mr-2 font-weight-bold"> Ditra - <c:out value="${sessionScope.order.sqfDitra}"/></label>/<label class="mt-2 ml-2 text-success mr-2 font-weight-bold">Hardwood - <c:out value="${sessionScope.order.sqfHardwood}"/></label>
+                        </small>
                     </div>
                     <div class="col-sm">
                         <label class="mt-2 text-dark">Services:</label>
@@ -324,7 +330,7 @@
                     Are you sure you want to delete this order?
                 </div>
                 <div class="modal-footer">
-                    <form action="http://localhost:8080/FloorBrax/deleteOrder" method="post">
+                    <form action="http://floor.us-east-1.elasticbeanstalk.com/deleteOrder" method="post">
                         <input 
                             class="form-control" 
                             type="text" 

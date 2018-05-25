@@ -24,7 +24,7 @@
 </head>
 <body onload="getSatus()">
   <div class="container">
-    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="home.jsp">FloorBrax</a></h1>
+    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
   </div>
   <div class="container">
     <div class="row">
@@ -34,7 +34,7 @@
             Orders
           </button>
           <div class="dropdown-menu">
-            <a href="../addOrder.jsp" class="dropdown-item">Add Order</a>
+            <a href="../uploadPicture.jsp" class="dropdown-item">Add Order</a>
             <a href="../searchByNum.jsp" class="dropdown-item">Search by Number</a>
             <a href="../searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
             <a href="../searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -84,7 +84,7 @@
         </div>
     </div>  
   <div class="container my-4">
-        <form action="http://localhost:8080/FloorBrax/addInstallersServlet" method="post">
+        <form action="http://floor.us-east-1.elasticbeanstalk.com/addInstallersServlet" method="post">
         <div class="row">
                <div class="col-sm">
                     <label>Name</label>
@@ -92,7 +92,7 @@
                            value="<c:out value="${sessionScope.installer.name}"/>"/>
                 </div>
                 <div class="col-sm">
-                    <label>Description</label>
+                    <label>Phone</label>
                     <input class="form-control mr-2" type="text" id="phone" name="phone"
                            value="<c:out value="${sessionScope.installer.phone}"/>"/>
                 </div>
@@ -107,7 +107,7 @@
       <h4 class="bg-primary p-2 w-100 text-center text-white">List of orders</h4>
     </div>
     <div class="container">
-        <form action="http://localhost:8080/FloorBrax/installerSearchOrdersServlet" method="post">
+        <form action="http://floor.us-east-1.elasticbeanstalk.com/installerSearchOrdersServlet" method="post">
             <div class="p-3 mb-2 bg-light border border-primary">
               <div class="row">
                 <div class="col-sm">
@@ -160,13 +160,13 @@
                     <td class="text-center align-middle"><label id="<c:out value="${order.orderNum}&"/>"><c:out value="${order.status}"/></label></br>
                         <small>
                             <a id="<c:out value="${order.orderNum}*"/>" 
-                               href="<c:url value="http://localhost:8080/FloorBrax/markOrderStatusInstallerTodayServlet">
+                               href="<c:url value="http://floor.us-east-1.elasticbeanstalk.com/markOrderStatusInstallerTodayServlet">
                                    <c:param name="id" value="${order.orderNum}"></c:param></c:url>">
                             </a>
                         </small>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-primary" href="<c:url value="http://localhost:8080/FloorBrax/goToOrderSelectedServlet"><c:param name="num" value="${order.orderNum}"></c:param></c:url>">View</a>
+                        <a class="btn btn-primary" href="<c:url value="http://floor.us-east-1.elasticbeanstalk.com/goToOrderSelectedServlet"><c:param name="num" value="${order.orderNum}"></c:param></c:url>">View</a>
                     </td>
                   </tr>
                   </c:forEach>
@@ -185,7 +185,7 @@
               Are you sure you want to delete this installer?
           </div>
           <div class="modal-footer">
-            <form action="http://localhost:8080/FloorBrax/deleteInstallerServlet" method="post">
+            <form action="http://floor.us-east-1.elasticbeanstalk.com/deleteInstallerServlet" method="post">
                 <button class="btn btn-secondary" type="submit">Delete</button>
             </form>
 

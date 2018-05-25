@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="home.jsp">FloorBrax</a></h1>
+    <h1 class="display-3 text-center text-white my-4 bg-primary"><a class="text-white" href="http://floor.us-east-1.elasticbeanstalk.com/goToHomeServlet">FloorBrax</a></h1>
   </div>
   <div class="container">
     <div class="row">
@@ -30,7 +30,7 @@
             Orders
           </button>
           <div class="dropdown-menu">
-            <a href="../addOrder.jsp" class="dropdown-item">Add Order</a>
+            <a href="../uploadPicture.jsp" class="dropdown-item">Add Order</a>
             <a href="../searchByNum.jsp" class="dropdown-item">Search by Number</a>
             <a href="../searchByInstaller.jsp" class="dropdown-item">Search by Installer</a>
             <a href="../searchByDate.jsp" class="dropdown-item">Search by Date</a>
@@ -80,7 +80,7 @@
         </div>
     </div> 
     <div class="container">
-        <form action="http://localhost:8080/FloorBrax/addServiceServlet" method="post">
+        <form action="http://floor.us-east-1.elasticbeanstalk.com/addServiceServlet" method="post">
         <div class="row">
                <div class="col-sm">
                     <label>Title</label>
@@ -142,14 +142,13 @@
             </div>
             <div class="col-sm">
             </div>
-                        <div class="col-sm">
+            <div class="col-sm">
             </div>
-                        <div class="col-sm">
-                           <button class="btn btn-primary float-right mt-4  ml-4" type="button" data-toggle="modal" data-target="#deleteModal">Delete Service</button> 
-                           <button class="btn btn-primary float-right mt-4" type="submit">Save</button>
+            <div class="col-sm">
+               <button class="btn btn-primary float-right mt-4  ml-4" type="button" data-toggle="modal" data-target="#deleteModal">Delete Service</button> 
+               <button class="btn btn-primary float-right mt-4" type="submit">Save</button>
 
-                        </div>
-
+            </div>
     </form>            
     </div>    
     <div class="modal" id="deleteModal">
@@ -163,7 +162,7 @@
               Are you sure you want to delete this service?
           </div>
           <div class="modal-footer">
-            <form action="http://localhost:8080/FloorBrax/deleteService" method="post">
+            <form action="http://floor.us-east-1.elasticbeanstalk.com/deleteService" method="post">
                 <button class="btn btn-secondary" type="submit">Delete</button>
             </form>
               
